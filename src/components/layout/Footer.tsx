@@ -4,7 +4,7 @@ import Logo from "./Logo";
 export default function Footer() {
   return (
     <footer
-      className="grid grid-cols-1 items-center gap-8 px-16 py-12 sm:grid-cols-[1fr_auto_1fr]"
+      className="grid grid-cols-1 items-center gap-8 px-6 py-10 sm:grid-cols-[1fr_auto_1fr] md:px-16 md:py-12"
       style={{
         background: "var(--ink)",
         borderTop: "1px solid rgba(200,168,130,0.12)",

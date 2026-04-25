@@ -21,7 +21,9 @@ export default function CookiesBannerClient() {
 
   return (
     <div
-      className="fixed inset-x-0 bottom-0 z-999 flex flex-col items-stretch justify-between gap-4 border-t px-12 py-4 sm:flex-row sm:items-center sm:gap-6"
+      role="dialog"
+      aria-label="Aviso de cookies"
+      className="fixed inset-x-0 bottom-0 z-999 flex flex-col items-stretch justify-between gap-4 border-t px-6 py-4 sm:flex-row sm:items-center sm:gap-6 md:px-12"
       style={{
         background: "var(--ink)",
         borderColor: "rgba(200,168,130,0.15)",

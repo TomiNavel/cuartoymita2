@@ -54,7 +54,7 @@ export default function CuartoYMitaPage() {
               "linear-gradient(to bottom, rgba(35,20,8,0.15) 0%, rgba(35,20,8,0.72) 100%)",
           }}
         />
-        <div className="absolute inset-0 flex flex-col justify-end px-16 py-14">
+        <div className="absolute inset-0 flex flex-col justify-end px-6 py-10 md:px-16 md:py-14">
           <p
             className="mb-3.5 flex items-center gap-3 text-[10px] uppercase tracking-[0.22em]"
             style={{ color: "var(--warm-mid)" }}
@@ -79,7 +79,7 @@ export default function CuartoYMitaPage() {
 
       {/* INTRO SPLIT */}
       <div className="grid grid-cols-1 md:grid-cols-2">
-        <div className="flex flex-col justify-center gap-6 px-16 py-20">
+        <div className="flex flex-col justify-center gap-6 px-6 py-12 md:px-16 md:py-20">
           <p
             className="flex items-center gap-3 text-[10px] uppercase tracking-[0.22em]"
             style={{ color: "var(--terra)" }}
@@ -129,7 +129,7 @@ export default function CuartoYMitaPage() {
           </p>
         </div>
         <div
-          className="min-h-120 bg-cover bg-center"
+          className="min-h-72 bg-cover bg-center md:min-h-120"
           style={{ backgroundImage: "url(/img-interior1.webp)" }}
         />
       </div>
@@ -142,8 +142,8 @@ export default function CuartoYMitaPage() {
         {VALUES.map((v) => (
           <div
             key={v.name}
-            className="flex flex-col gap-4 px-11 py-13"
-            style={{ background: "var(--brown)", padding: "52px 44px" }}
+            className="flex flex-col gap-4 px-6 py-10 md:px-11 md:py-13"
+            style={{ background: "var(--brown)" }}
           >
             <svg
               className="h-9 w-9"
@@ -173,7 +173,7 @@ export default function CuartoYMitaPage() {
       {/* FEATURES (Terraza + Pet friendly) */}
       <div className="grid grid-cols-1 gap-0.5 md:grid-cols-2">
         <div
-          className="flex flex-col gap-5 px-14 py-18"
+          className="flex flex-col gap-5 px-6 py-12 md:px-14 md:py-18"
           style={{ background: "var(--parchment)" }}
         >
           <svg
@@ -222,7 +222,7 @@ export default function CuartoYMitaPage() {
           </div>
         </div>
         <div
-          className="flex flex-col gap-5 px-14 py-18"
+          className="flex flex-col gap-5 px-6 py-12 md:px-14 md:py-18"
           style={{ background: "var(--cream)" }}
         >
           <svg
@@ -273,7 +273,7 @@ export default function CuartoYMitaPage() {
       </div>
 
       {/* TESTIMONIOS */}
-      <div className="px-16 py-24" style={{ background: "var(--cream)" }}>
+      <div className="px-6 py-16 md:px-16 md:py-24" style={{ background: "var(--cream)" }}>
         <div className="mb-16 text-center">
           <p
             className="mb-5 flex items-center justify-center gap-3 text-[10px] uppercase tracking-[0.22em]"
@@ -296,7 +296,7 @@ export default function CuartoYMitaPage() {
           {testimonials.map((t) => (
             <div
               key={t.author}
-              className="flex flex-col gap-5 px-9 py-10"
+              className="flex flex-col gap-5 px-6 py-8 md:px-9 md:py-10"
               style={{ background: "var(--parchment)" }}
             >
               <div className="flex gap-0.75">
@@ -350,7 +350,7 @@ export default function CuartoYMitaPage() {
 
       {/* CTA FINAL */}
       <div
-        className="flex flex-col items-stretch justify-between gap-10 px-16 py-20 sm:flex-row sm:items-center"
+        className="flex flex-col items-stretch justify-between gap-10 px-6 py-14 sm:flex-row sm:items-center md:px-16 md:py-20"
         style={{ background: "var(--brown)" }}
       >
         <div>

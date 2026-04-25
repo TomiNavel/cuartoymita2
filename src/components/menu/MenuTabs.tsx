@@ -34,7 +34,9 @@ export default function MenuTabs() {
     <>
       {/* Tabs */}
       <div
-        className="sticky top-18 z-90 flex gap-0 overflow-x-auto border-b px-16 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        role="tablist"
+        aria-label="Categorías del menú"
+        className="sticky top-18 z-90 flex border-b md:px-16"
         style={{
           background: "var(--cream)",
           borderColor: "var(--parchment)",
@@ -46,20 +48,24 @@ export default function MenuTabs() {
             <button
               key={cat.id}
               type="button"
+              role="tab"
+              aria-selected={isActive}
+              aria-controls={`panel-${cat.id}`}
+              id={`tab-${cat.id}`}
               onClick={() => selectTab(cat.id)}
-              data-active={isActive}
-              className="flex cursor-pointer items-center gap-2 whitespace-nowrap border-0 border-b-2 bg-transparent px-7 py-5 text-[11px] font-normal uppercase tracking-[0.14em] transition-colors"
+              className="flex flex-1 cursor-pointer items-center justify-center gap-1.5 border-0 border-b-2 bg-transparent px-2 py-4 text-[10px] font-normal uppercase tracking-[0.08em] transition-colors focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-terra md:flex-none md:gap-3 md:px-9 md:py-6 md:text-[14px] md:tracking-[0.18em]"
               style={{
                 color: isActive ? "var(--terra)" : "rgba(35,26,16,0.45)",
                 borderBottomColor: isActive ? "var(--terra)" : "transparent",
               }}
             >
               <span
-                className="h-1.5 w-1.5 rounded-full"
+                className="h-1 w-1 rounded-full md:h-1.5 md:w-1.5"
                 style={{
                   background: "currentColor",
                   opacity: isActive ? 1 : 0.5,
                 }}
+                aria-hidden="true"
               />
               {cat.label}
             </button>
@@ -68,24 +74,30 @@ export default function MenuTabs() {
       </div>
 
       {/* Body */}
-      <div className="mx-auto max-w-300 px-16 py-24">
-        <div key={current.id} className="animate-[fade-up_0.35s_ease]">
+      <div className="mx-auto max-w-300 px-6 py-14 md:px-16 md:py-24">
+        <div
+          key={current.id}
+          role="tabpanel"
+          id={`panel-${current.id}`}
+          aria-labelledby={`tab-${current.id}`}
+          className="animate-[fade-up_0.35s_ease]"
+        >
           <div
-            className="mb-16 grid grid-cols-1 items-end gap-14 border-b pb-10 md:grid-cols-2"
+            className="mb-10 grid grid-cols-1 items-end gap-6 border-b pb-8 md:mb-16 md:grid-cols-2 md:gap-14 md:pb-10"
             style={{ borderColor: "var(--parchment)" }}
           >
             <h2
-              className="font-display font-light leading-none"
+              className="order-2 font-display font-light leading-none md:order-1"
               style={{
                 color: "var(--brown)",
-                fontSize: "clamp(42px, 4vw, 60px)",
+                fontSize: "clamp(36px, 4vw, 60px)",
               }}
             >
               {current.titlePrefix}{" "}
               <em style={{ color: "var(--terra)" }}>{current.titleEm}</em>
             </h2>
             <div
-              className="relative h-55 overflow-hidden bg-cover"
+              className="relative order-1 h-40 overflow-hidden bg-cover md:order-2 md:h-55"
               style={{
                 backgroundImage: `url(${current.image})`,
                 backgroundPosition: current.imagePosition ?? "center",
@@ -105,7 +117,7 @@ export default function MenuTabs() {
             {current.items.map((item) => (
               <div
                 key={item.name}
-                className="border border-transparent px-9 py-8 transition-colors hover:border-[rgba(158,98,59,0.15)] hover:[background:var(--parchment)]"
+                className="border border-transparent px-6 py-6 transition-colors hover:border-[rgba(158,98,59,0.15)] hover:[background:var(--parchment)] md:px-9 md:py-8"
                 style={{ background: "var(--cream)" }}
               >
                 <div className="mb-2.5 flex items-baseline justify-between gap-4">

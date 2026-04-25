@@ -13,7 +13,7 @@ export default function ContactoPage() {
     <>
       {/* HERO */}
       <div
-        className="mt-18 px-16 pb-14 pt-18"
+        className="mt-18 px-6 pb-10 pt-12 md:px-16 md:pb-14 md:pt-18"
         style={{ background: "var(--brown)" }}
       >
         <p
@@ -42,7 +42,7 @@ export default function ContactoPage() {
       </div>
 
       {/* MAPA + INFO */}
-      <div className="grid min-h-150 grid-cols-1 md:grid-cols-2">
+      <div className="grid grid-cols-1 md:min-h-150 md:grid-cols-2">
         <div className="relative">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2900.6697158616157!2d-5.858322358877987!3d43.363018871237664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd368cfd4c45dadb%3A0x7154e97c264cc0be!2sCuarto%20y%20Mit%C3%A1!5e0!3m2!1ses!2ses!4v1738758212771!5m2!1ses!2ses"
@@ -50,12 +50,12 @@ export default function ContactoPage() {
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             title="Ubicación de Cuarto y Mitá en Oviedo"
-            className="block h-full min-h-125 w-full border-0"
+            className="block h-full min-h-80 w-full border-0 md:min-h-125"
             style={{ filter: "sepia(20%) contrast(0.95) brightness(0.97)" }}
           />
         </div>
         <div
-          className="flex flex-col justify-center gap-9 px-14 py-12"
+          className="flex flex-col justify-center gap-9 px-6 py-12 md:px-14"
           style={{ background: "var(--cream)" }}
         >
           <div>
@@ -136,8 +136,8 @@ export default function ContactoPage() {
       </div>
 
       {/* VISIT BLOCK */}
-      <div className="grid min-h-120 grid-cols-1 md:grid-cols-2">
-        <div className="relative overflow-hidden">
+      <div className="grid grid-cols-1 md:min-h-120 md:grid-cols-2">
+        <div className="relative h-64 overflow-hidden md:h-auto">
           <Image
             src="/intro.webp"
             alt="Interior de Cuarto y Mitá"
@@ -147,7 +147,7 @@ export default function ContactoPage() {
           />
         </div>
         <div
-          className="flex flex-col justify-center gap-5 px-14 py-16"
+          className="flex flex-col justify-center gap-5 px-6 py-12 md:px-14 md:py-16"
           style={{ background: "var(--brown)" }}
         >
           <p

@@ -97,7 +97,7 @@ export default function Home() {
               "linear-gradient(to bottom, rgba(35,20,8,0.30) 0%, rgba(35,20,8,0.18) 40%, rgba(35,20,8,0.65) 100%)",
           }}
         />
-        <div className="relative z-2 flex h-full flex-col justify-end px-16 pb-20">
+        <div className="relative z-2 flex h-full flex-col justify-end px-6 pb-16 md:px-16 md:pb-20">
           <p
             className="mb-4 flex items-center gap-3.5 text-[11px] uppercase tracking-[0.22em]"
             style={{ color: "var(--warm-mid)" }}
@@ -142,10 +142,10 @@ export default function Home() {
       {/* MENÚ / CATEGORÍAS */}
       <section
         id="menu"
-        className="px-16 py-24"
+        className="px-6 py-16 md:px-16 md:py-24"
         style={{ background: "var(--brown)", color: "var(--cream)" }}
       >
-        <div className="mb-16 flex items-end justify-between">
+        <div className="mb-10 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between md:mb-16">
           <div>
             <p
               className="mb-5 flex items-center gap-3 text-[10px] uppercase tracking-[0.22em]"
@@ -179,10 +179,10 @@ export default function Home() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-4 grid-rows-[auto_auto] gap-0.5">
+        <div className="grid grid-cols-1 gap-0.5 sm:grid-cols-2 lg:grid-cols-4 lg:grid-rows-[auto_auto]">
           {CATEGORIES.map((cat) => {
             const sizeClass = cat.featured
-              ? "col-span-2 min-h-100"
+              ? "lg:col-span-2 min-h-72 sm:aspect-4/3 lg:min-h-100 lg:aspect-auto"
               : "aspect-4/3";
             const baseClass = `group relative overflow-hidden no-underline ${sizeClass}`;
             const inner = (
@@ -250,13 +250,13 @@ export default function Home() {
 
       {/* HIGHLIGHTS */}
       <div
-        className="grid grid-cols-1 gap-0.5 px-16 py-20 md:grid-cols-3"
+        className="grid grid-cols-1 gap-0.5 px-6 py-14 md:grid-cols-3 md:px-16 md:py-20"
         style={{ background: "var(--parchment)" }}
       >
         {HIGHLIGHTS.map((h) => (
           <div
             key={h.num}
-            className="px-10 py-12"
+            className="px-6 py-10 md:px-10 md:py-12"
             style={{ background: "var(--cream)" }}
           >
             <div
@@ -284,7 +284,7 @@ export default function Home() {
       {/* SOBRE NOSOTROS */}
       <section
         id="cuartoymita"
-        className="grid grid-cols-1 items-center gap-20 px-16 py-24 md:grid-cols-2"
+        className="grid grid-cols-1 items-center gap-10 px-6 py-16 md:grid-cols-2 md:gap-20 md:px-16 md:py-24"
       >
         <div>
           <p
@@ -337,14 +337,14 @@ export default function Home() {
           </Link>
         </div>
         <div
-          className="h-140 bg-cover bg-center"
+          className="h-72 bg-cover bg-center md:h-140"
           style={{ backgroundImage: "url(/img-interior1.webp)" }}
         />
       </section>
 
       {/* CONTACTO RESUMEN */}
       <section
-        className="grid grid-cols-1 items-center gap-20 px-16 py-24 md:grid-cols-2"
+        className="grid grid-cols-1 items-center gap-10 px-6 py-16 md:grid-cols-2 md:gap-20 md:px-16 md:py-24"
         style={{ background: "var(--dark)", color: "var(--cream)" }}
       >
         <div>
@@ -422,7 +422,7 @@ export default function Home() {
           </div>
         </div>
         <div
-          className="h-95 bg-cover bg-center"
+          className="h-64 bg-cover bg-center md:h-95"
           style={{ backgroundImage: "url(/img-cafe-local.webp)" }}
         />
       </section>

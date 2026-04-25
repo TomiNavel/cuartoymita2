@@ -124,7 +124,7 @@ export default function PoliticaCookiesPage() {
     <>
       {/* HERO */}
       <div
-        className="mt-18 px-16 pb-11 pt-14"
+        className="mt-18 px-6 pb-8 pt-10 md:px-16 md:pb-11 md:pt-14"
         style={{ background: "var(--brown)" }}
       >
         <p
@@ -146,7 +146,7 @@ export default function PoliticaCookiesPage() {
       </div>
 
       {/* CONTENIDO */}
-      <div className="mx-auto max-w-190 px-12 pb-30 pt-18">
+      <div className="mx-auto max-w-190 px-6 pb-20 pt-12 md:px-12 md:pb-30 md:pt-18">
         <p
           className="mb-14 border-b pb-10 text-[16px] font-light leading-[1.85]"
           style={{ color: "#5a3f2a", borderColor: "var(--parchment)" }}

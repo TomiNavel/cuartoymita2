@@ -12,7 +12,7 @@ export default function MenuPage() {
     <>
       {/* HERO */}
       <div
-        className="mt-18 grid grid-cols-1 items-end gap-10 px-16 pb-14 pt-18 md:grid-cols-[1fr_auto]"
+        className="mt-18 grid grid-cols-1 items-end gap-6 px-6 pb-10 pt-12 md:grid-cols-[1fr_auto] md:gap-10 md:px-16 md:pb-14 md:pt-18"
         style={{ background: "var(--brown)" }}
       >
         <div>
