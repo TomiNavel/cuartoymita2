@@ -5,6 +5,18 @@ export const metadata: Metadata = {
   title: "Menú",
   description:
     "Carta de Cuarto y Mitá: cafés artesanales, infusiones, embutidos ibéricos y quesos artesanos.",
+  alternates: { canonical: "/menu" },
+  openGraph: {
+    url: "/menu",
+    title: "Menú | Cuarto y Mitá",
+    description:
+      "Carta de Cuarto y Mitá: cafés artesanales, infusiones, embutidos ibéricos y quesos artesanos.",
+  },
+  twitter: {
+    title: "Menú | Cuarto y Mitá",
+    description:
+      "Carta de Cuarto y Mitá: cafés artesanales, infusiones, embutidos ibéricos y quesos artesanos.",
+  },
 };
 
 export default function MenuPage() {

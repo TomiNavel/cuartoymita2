@@ -5,6 +5,22 @@ export const metadata: Metadata = {
   title: "Política de cookies",
   description:
     "Información sobre el uso de cookies en cuartoymita.com y cómo gestionarlas desde tu navegador.",
+  alternates: { canonical: "/politica-cookies" },
+  openGraph: {
+    url: "/politica-cookies",
+    title: "Política de cookies | Cuarto y Mitá",
+    description:
+      "Información sobre el uso de cookies en cuartoymita.com y cómo gestionarlas desde tu navegador.",
+  },
+  twitter: {
+    title: "Política de cookies | Cuarto y Mitá",
+    description:
+      "Información sobre el uso de cookies en cuartoymita.com y cómo gestionarlas desde tu navegador.",
+  },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 const SECTIONS = [

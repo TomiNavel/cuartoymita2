@@ -7,6 +7,18 @@ export const metadata: Metadata = {
   title: "Cuarto y Mitá",
   description:
     "Conoce Cuarto y Mitá: una cafetería y tienda en Oviedo donde el detalle, el producto local y la atención cercana definen cada momento.",
+  alternates: { canonical: "/cuartoymita" },
+  openGraph: {
+    url: "/cuartoymita",
+    title: "Cuarto y Mitá",
+    description:
+      "Conoce Cuarto y Mitá: una cafetería y tienda en Oviedo donde el detalle, el producto local y la atención cercana definen cada momento.",
+  },
+  twitter: {
+    title: "Cuarto y Mitá",
+    description:
+      "Conoce Cuarto y Mitá: una cafetería y tienda en Oviedo donde el detalle, el producto local y la atención cercana definen cada momento.",
+  },
 };
 
 const VALUES = [

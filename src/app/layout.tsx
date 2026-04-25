@@ -3,6 +3,7 @@ import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import CookiesBanner from "@/components/layout/CookiesBanner";
+import { SITE_NAME, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -20,18 +21,46 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
+const SITE_DESCRIPTION =
+  "Cafetería y tienda en el centro de Oviedo. Cafés de origen, dulces caseros, embutidos ibéricos, quesos artesanos y vinos seleccionados.";
+
+const OG_IMAGES = [
+  {
+    url: "/intro.webp",
+    width: 1200,
+    height: 630,
+    alt: "Interior de Cuarto y Mitá",
+  },
+];
+
 export const metadata: Metadata = {
   title: {
-    default: "Cuarto y Mitá | Café en Oviedo",
-    template: "%s | Cuarto y Mitá",
+    default: `${SITE_NAME} | Café en Oviedo`,
+    template: `%s | ${SITE_NAME}`,
   },
-  description:
-    "Cafetería y tienda en el centro de Oviedo. Cafés de origen, dulces caseros, embutidos ibéricos, quesos artesanos y vinos seleccionados.",
-  metadataBase: new URL("https://cuartoymita.com"),
+  description: SITE_DESCRIPTION,
+  metadataBase: new URL(SITE_URL),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "es_ES",
-    siteName: "Cuarto y Mitá",
+    siteName: SITE_NAME,
+    url: SITE_URL,
+    title: `${SITE_NAME} | Café en Oviedo`,
+    description: SITE_DESCRIPTION,
+    images: OG_IMAGES,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${SITE_NAME} | Café en Oviedo`,
+    description: SITE_DESCRIPTION,
+    images: OG_IMAGES.map((img) => img.url),
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

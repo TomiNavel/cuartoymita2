@@ -6,6 +6,18 @@ export const metadata: Metadata = {
   title: "Contacto",
   description:
     "Encuentra Cuarto y Mitá en Matemático Pedrayes 5, Oviedo. Teléfono, correo y horarios.",
+  alternates: { canonical: "/contacto" },
+  openGraph: {
+    url: "/contacto",
+    title: "Contacto | Cuarto y Mitá",
+    description:
+      "Encuentra Cuarto y Mitá en Matemático Pedrayes 5, Oviedo. Teléfono, correo y horarios.",
+  },
+  twitter: {
+    title: "Contacto | Cuarto y Mitá",
+    description:
+      "Encuentra Cuarto y Mitá en Matemático Pedrayes 5, Oviedo. Teléfono, correo y horarios.",
+  },
 };
 
 export default function ContactoPage() {
