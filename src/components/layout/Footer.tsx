@@ -4,34 +4,45 @@ import Logo from "./Logo";
 export default function Footer() {
   return (
     <footer
-      className="flex flex-col gap-6 px-16 py-12 sm:flex-row sm:items-center sm:justify-between"
+      className="grid grid-cols-1 items-center gap-8 px-16 py-12 sm:grid-cols-[1fr_auto_1fr]"
       style={{
         background: "var(--ink)",
         borderTop: "1px solid rgba(200,168,130,0.12)",
       }}
     >
-      <Link href="/" className="flex items-center no-underline">
-        <Logo variant="dark" />
-      </Link>
+      {/* Spacer izquierdo para centrar el bloque del medio */}
+      <div className="hidden sm:block" />
 
-      <div
-        className="text-[12px] tracking-[0.06em]"
-        style={{ color: "rgba(250,246,238,0.25)" }}
-      >
-        Created by {" "}
-            <Link
-              className="hover:underline"
-              href={"https://www.tominavel.com"}
-            >
-              TomiNavel
-            </Link>
-            {" "} © {new Date().getFullYear()}
+      {/* Logo + frase centrados */}
+      <div className="flex flex-col items-center gap-3 text-center">
+        <Link href="/" className="no-underline">
+          <Logo variant="dark" size={32} />
+        </Link>
+        <div
+          className="text-[13px] tracking-[0.06em]"
+          style={{ color: "rgba(250,246,238,0.55)" }}
+        >
+          Created by{" "}
+          <a
+            href="https://www.tominavel.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border-b transition-colors hover:text-terra-light hover:border-terra-light"
+            style={{
+              color: "rgba(250,246,238,0.75)",
+              borderColor: "rgba(212,151,106,0.3)",
+            }}
+          >
+            TomiNavel
+          </a>{" "}
+          © {new Date().getFullYear()}
+        </div>
       </div>
 
-      <div className="flex gap-5">
+      <div className="flex justify-center gap-5 sm:justify-end">
         <Link
           href="/politica-cookies"
-          className="text-[11px] uppercase tracking-[0.12em] no-underline transition-colors"
+          className="text-[11px] uppercase tracking-[0.12em] no-underline transition-colors hover:text-terra-light"
           style={{ color: "rgba(250,246,238,0.3)" }}
         >
           Política de cookies
