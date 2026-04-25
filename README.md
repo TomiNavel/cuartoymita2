@@ -57,9 +57,11 @@ Official website for Cuarto y Mitá, a coffee shop and store in the heart of Ovi
 - **Canonical URLs**: Defined on every page
 - **Selective indexing**: `noindex` on `/politica-cookies` plus explicit disallow in `robots.txt`
 
+
 ## License
 
 [MIT](./LICENSE)
+
 
 ## Contributions
 
