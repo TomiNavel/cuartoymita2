@@ -1,18 +1,26 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-
-const STORAGE_KEY = "cookiesDecision";
+import { useEffect, useState } from "react";
+import { COOKIES_RESET_EVENT, COOKIES_STORAGE_KEY } from "./cookies";
 
 export default function CookiesBannerClient() {
   const [dismissed, setDismissed] = useState(
-    () => !!localStorage.getItem(STORAGE_KEY),
+    () => !!localStorage.getItem(COOKIES_STORAGE_KEY),
   );
   const [closing, setClosing] = useState(false);
 
+  useEffect(() => {
+    function reopen() {
+      setClosing(false);
+      setDismissed(false);
+    }
+    window.addEventListener(COOKIES_RESET_EVENT, reopen);
+    return () => window.removeEventListener(COOKIES_RESET_EVENT, reopen);
+  }, []);
+
   function decide(decision: "accepted" | "rejected") {
-    localStorage.setItem(STORAGE_KEY, decision);
+    localStorage.setItem(COOKIES_STORAGE_KEY, decision);
     setClosing(true);
     setTimeout(() => setDismissed(true), 300);
   }

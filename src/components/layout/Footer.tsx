@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Logo from "./Logo";
+import ManageCookiesButton from "./ManageCookiesButton";
 
 export default function Footer() {
   return (
@@ -39,7 +40,8 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="flex justify-center gap-5 sm:justify-end">
+      <div className="flex flex-wrap justify-center gap-5 sm:justify-end">
+        <ManageCookiesButton />
         <Link
           href="/politica-cookies"
           className="text-[11px] uppercase tracking-[0.12em] no-underline transition-colors hover:text-terra-light"
