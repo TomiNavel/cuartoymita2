@@ -20,7 +20,7 @@ export const menuCategories: MenuCategory[] = [
     label: "Cafés",
     titlePrefix: "Cafés",
     titleEm: "artesanales",
-    image: "/img-cafes.jpg",
+    image: "/img-cafes.webp",
     items: [
       {
         name: "Espresso Clásico",
@@ -70,7 +70,7 @@ export const menuCategories: MenuCategory[] = [
     label: "Infusiones",
     titlePrefix: "Infusiones",
     titleEm: "y tés",
-    image: "/img-infusiones.jpg",
+    image: "/img-infusiones.webp",
     items: [
       {
         name: "Té Verde Sencha",
@@ -119,7 +119,7 @@ export const menuCategories: MenuCategory[] = [
     label: "Embutidos",
     titlePrefix: "Embutidos",
     titleEm: "ibéricos",
-    image: "/tabla-de-embutidos.jpg",
+    image: "/tabla-de-embutidos.webp",
     imagePosition: "center 40%",
     items: [
       {
@@ -170,7 +170,7 @@ export const menuCategories: MenuCategory[] = [
     label: "Quesos",
     titlePrefix: "Quesos",
     titleEm: "artesanos",
-    image: "/img-quesos.jpg",
+    image: "/img-quesos.webp",
     items: [
       {
         name: "Queso Manchego",

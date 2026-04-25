@@ -15,7 +15,7 @@ const CATEGORIES: {
     key: "cafes",
     name: "Cafés",
     desc: "Nuestro corazón. Granos de origen seleccionados, preparados con precisión y mucho cariño.",
-    image: "/img-cafes.jpg",
+    image: "/img-cafes.webp",
     badge: "Especialidad",
     featured: true,
     href: "/menu#cafes",
@@ -24,13 +24,13 @@ const CATEGORIES: {
     key: "dulces",
     name: "Dulces",
     desc: "Elaboración casera, de cada día.",
-    image: "/img-dulces.jpg",
+    image: "/img-dulces.webp",
   },
   {
     key: "embutidos",
     name: "Embutidos",
     desc: "Curados con paciencia y tradición.",
-    image: "/tabla-de-embutidos.jpg",
+    image: "/tabla-de-embutidos.webp",
     imagePosition: "center 40%",
     href: "/menu#embutidos",
   },
@@ -38,20 +38,20 @@ const CATEGORIES: {
     key: "quesos",
     name: "Quesos",
     desc: "Suaves o intensos, siempre artesanos.",
-    image: "/img-quesos.jpg",
+    image: "/img-quesos.webp",
     href: "/menu#quesos",
   },
   {
     key: "vinos",
     name: "Vinos",
     desc: "Una selección cuidada con historia en cada botella.",
-    image: "/img-vinos.jpg",
+    image: "/img-vinos.webp",
   },
   {
     key: "infusiones",
     name: "Infusiones",
     desc: "Hierbas y especias para momentos de calma.",
-    image: "/img-infusiones.jpg",
+    image: "/img-infusiones.webp",
     href: "/menu#infusiones",
   },
 ];
@@ -338,7 +338,7 @@ export default function Home() {
         </div>
         <div
           className="h-140 bg-cover bg-center"
-          style={{ backgroundImage: "url(/img-interior1.jpg)" }}
+          style={{ backgroundImage: "url(/img-interior1.webp)" }}
         />
       </section>
 
@@ -423,7 +423,7 @@ export default function Home() {
         </div>
         <div
           className="h-95 bg-cover bg-center"
-          style={{ backgroundImage: "url(/img-cafe-local.jpg)" }}
+          style={{ backgroundImage: "url(/img-cafe-local.webp)" }}
         />
       </section>
     </>

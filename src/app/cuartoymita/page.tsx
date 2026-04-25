@@ -130,7 +130,7 @@ export default function CuartoYMitaPage() {
         </div>
         <div
           className="min-h-120 bg-cover bg-center"
-          style={{ backgroundImage: "url(/img-interior1.jpg)" }}
+          style={{ backgroundImage: "url(/img-interior1.webp)" }}
         />
       </div>
 
