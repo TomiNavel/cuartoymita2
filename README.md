@@ -4,68 +4,63 @@
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
-![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 ![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)
 
-Sitio web oficial de Cuarto y Mitá, cafetería y tienda en el centro de Oviedo.
+Official website for Cuarto y Mitá, a coffee shop and store in the heart of Oviedo, Spain.
 
-## Páginas
+**Live Site**: [https://www.cuartoymita.com/](https://www.cuartoymita.com/)
+
+## Pages
 
 - `/` — Landing
-- `/menu` — Carta con tabs por categoría (cafés, infusiones, embutidos, quesos)
-- `/cuartoymita` — Quiénes somos, valores, testimonios
-- `/contacto` — Mapa, dirección, teléfono y correo
-- `/politica-cookies` — Política de cookies (no indexada)
+- `/menu` — Menu with tabs by category (coffees, teas, cured meats, cheeses)
+- `/cuartoymita` — About us, values, testimonials
+- `/contacto` — Map, address, phone and email
+- `/politica-cookies` — Cookie policy (not indexed)
 
-## Estructura
+## Features
 
-```
-src/
-  app/                  # App Router (páginas, layout, sitemap, robots)
-  components/
-    layout/             # Header, Footer, Logo, CookiesBanner
-    menu/               # MenuTabs
-  data/                 # menu.ts, testimonials.ts
-  hooks/                # useScrolled
-  lib/                  # site.ts (constantes globales)
-public/                 # Imágenes optimizadas (WebP) y favicon
-Diseño/                 # HTML de referencia del diseño original
-Docs/                   # Documentación interna
-```
+### Architecture & Performance
+- App Router with **fully static generation (SSG)** on every route — CDN-servable with no SSR runtime
+- **Server Components by default**, Client Components only where interaction requires (`Header`, `MenuTabs`, `CookiesBanner`)
+- **Strict TypeScript** end-to-end with typed data sources (`MenuCategory`, `Testimonial`)
+- **Tailwind CSS v4** with design tokens declared via `@theme` (no `tailwind.config.ts`)
+- **Turbopack** as bundler
+- Path aliases (`@/*`) for clean imports
+- Fonts served via `next/font` (Cormorant Garamond + DM Sans), self-hosted and preloaded
+- Images optimized with `next/image` and WebP format
 
-## Desarrollo
+### UX
+- Responsive layout with mobile hamburger menu (body scroll-lock when open)
+- Header transparent over the hero, switches to solid on scroll via custom `useScrolled` hook
+- Menu tabs synced with `window.location.hash` — deep-linkable and reactive to `hashchange`
+- Selective smooth scroll using Next.js 16 `data-scroll-behavior="smooth"`
+- Cookie banner persisted in `localStorage` and reopenable from the footer
 
-```bash
-npm install
-npm run dev
-```
+### Accessibility
+- `role="tablist"` / `role="tab"` / `role="tabpanel"` with `aria-selected` and `aria-controls` on menu tabs
+- `aria-current="page"` on active navigation links
+- `aria-expanded` and `aria-controls` on mobile hamburger button
+- `role="dialog"` on cookie banner
+- Visible `focus-visible` outlines on all interactive elements
+- Semantic landmarks (`<header>`, `<main>`, `<nav>`, `<footer>`) and descriptive `alt` text
 
-Servidor en [http://localhost:3000](http://localhost:3000).
+### Security
+- **Security Headers**: `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy` and `Permissions-Policy` configured for all routes via `next.config.ts`
+- **Cookie Policy**: GDPR-compliant cookie consent management with reopen flow
 
-### Otros comandos
+### SEO
+- **Metadata**: Unique title and description for each page, with template fallback in root layout
+- **Social Sharing**: Site-wide OpenGraph and Twitter Card (`summary_large_image`) with per-page overrides
+- **Sitemap & Robots**: Auto-generated `sitemap.xml` (with `priority` and `changeFrequency`) and `robots.txt`
+- **Canonical URLs**: Defined on every page
+- **Selective indexing**: `noindex` on `/politica-cookies` plus explicit disallow in `robots.txt`
 
-```bash
-npm run build   # Build de producción
-npm run start   # Servir build de producción
-npm run lint    # ESLint
-```
-
-## Características
-
-- App Router con generación estática (SSG) en todas las rutas
-- Tipografías servidas con `next/font` (Cormorant Garamond + DM Sans)
-- Imágenes optimizadas con `next/image` y formato WebP
-- Layout responsive con menú móvil tipo hamburguesa
-- Banner de cookies persistente en `localStorage` y reabrible desde el footer
-- Cabeceras de seguridad (`X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`)
-- SEO: metadata por página, Open Graph, Twitter Card, canonical URLs, `sitemap.xml` y `robots.txt` autogenerados
-- Accesibilidad: roles ARIA, focus visible, navegación por teclado
-
-## Despliegue
-
-Pensado para [Vercel](https://vercel.com). Solo conectar el repositorio: el build (`next build`) y el sirviente estático se configuran automáticamente.
-
-## Licencia
+## License
 
 [MIT](./LICENSE)
+
+## Contributions
+
+Contributions are welcome! Feel free to open an issue or submit a pull request.
