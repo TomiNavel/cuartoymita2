@@ -45,7 +45,7 @@ export default function ContactoPage() {
       <div className="grid min-h-150 grid-cols-1 md:grid-cols-2">
         <div className="relative">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2901.3!2d-5.84476!3d43.36202!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd368cc7ff96c3df%3A0x1234!2sMatem%C3%A1tico+Pedrayes+5%2C+33004+Oviedo%2C+Asturias!5e0!3m2!1ses!2ses!4v1714000000000!5m2!1ses!2ses"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2900.6697158616157!2d-5.858322358877987!3d43.363018871237664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd368cfd4c45dadb%3A0x7154e97c264cc0be!2sCuarto%20y%20Mit%C3%A1!5e0!3m2!1ses!2ses!4v1738758212771!5m2!1ses!2ses"
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
@@ -70,7 +70,7 @@ export default function ContactoPage() {
               Dirección
             </p>
             <a
-              href="https://maps.google.com/?q=Matem%C3%A1tico+Pedrayes+5,+Oviedo"
+              href="https://maps.google.com/?q=Cuarto+Mit%C3%A1,+Oviedo"
               target="_blank"
               rel="noopener noreferrer"
               className="block font-display text-[26px] font-light leading-[1.35] no-underline transition-colors hover:text-terra"
@@ -93,13 +93,12 @@ export default function ContactoPage() {
               />
               Teléfono
             </p>
-            <a
-              href="tel:984085159"
+            <p
               className="block font-display text-[26px] font-light leading-[1.35] no-underline transition-colors hover:text-terra"
               style={{ color: "var(--brown)" }}
             >
               984 08 51 59
-            </a>
+            </p>
             <p
               className="mt-1.5 text-[13px] font-light leading-[1.6]"
               style={{ color: "#8a6a50" }}

@@ -9,6 +9,7 @@ const CATEGORIES: {
   badge?: string;
   featured?: boolean;
   imagePosition?: string;
+  href?: string;
 }[] = [
   {
     key: "cafes",
@@ -17,6 +18,7 @@ const CATEGORIES: {
     image: "/img-cafes.jpg",
     badge: "Especialidad",
     featured: true,
+    href: "/menu#cafes",
   },
   {
     key: "dulces",
@@ -30,12 +32,14 @@ const CATEGORIES: {
     desc: "Curados con paciencia y tradición.",
     image: "/tabla-de-embutidos.jpg",
     imagePosition: "center 40%",
+    href: "/menu#embutidos",
   },
   {
     key: "quesos",
     name: "Quesos",
     desc: "Suaves o intensos, siempre artesanos.",
     image: "/img-quesos.jpg",
+    href: "/menu#quesos",
   },
   {
     key: "vinos",
@@ -48,6 +52,7 @@ const CATEGORIES: {
     name: "Infusiones",
     desc: "Hierbas y especias para momentos de calma.",
     image: "/img-infusiones.jpg",
+    href: "/menu#infusiones",
   },
 ];
 
@@ -175,53 +180,71 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-4 grid-rows-[auto_auto] gap-0.5">
-          {CATEGORIES.map((cat) => (
-            <Link
-              key={cat.key}
-              href="/menu"
-              className={`group relative cursor-pointer overflow-hidden no-underline ${
-                cat.featured ? "col-span-2 min-h-100" : "aspect-4/3"
-              }`}
-              style={{ background: "var(--terra-dk)" }}
-            >
+          {CATEGORIES.map((cat) => {
+            const sizeClass = cat.featured
+              ? "col-span-2 min-h-100"
+              : "aspect-4/3";
+            const baseClass = `group relative overflow-hidden no-underline ${sizeClass}`;
+            const inner = (
+              <>
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                  style={{
+                    backgroundImage: `url(${cat.image})`,
+                    backgroundPosition: cat.imagePosition ?? "center",
+                  }}
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "linear-gradient(to top, rgba(23,12,4,0.85) 0%, rgba(23,12,4,0.1) 55%)",
+                  }}
+                />
+                {cat.badge && (
+                  <div
+                    className="absolute left-6 top-6 px-3 py-1.25 text-[10px] font-normal uppercase tracking-[0.16em]"
+                    style={{ color: "var(--dark)", background: "var(--gold)" }}
+                  >
+                    {cat.badge}
+                  </div>
+                )}
+                <div className="absolute inset-x-0 bottom-0 px-6 pb-7 pt-7">
+                  <div
+                    className="mb-1.5 font-display text-[28px] font-normal"
+                    style={{ color: "var(--cream)" }}
+                  >
+                    {cat.name}
+                  </div>
+                  <div
+                    className="text-[12px] font-light leading-[1.6]"
+                    style={{ color: "rgba(250,246,238,0.6)" }}
+                  >
+                    {cat.desc}
+                  </div>
+                </div>
+              </>
+            );
+
+            return cat.href ? (
+              <Link
+                key={cat.key}
+                href={cat.href}
+                className={`${baseClass} cursor-pointer`}
+                style={{ background: "var(--terra-dk)" }}
+              >
+                {inner}
+              </Link>
+            ) : (
               <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-                style={{
-                  backgroundImage: `url(${cat.image})`,
-                  backgroundPosition: cat.imagePosition ?? "center",
-                }}
-              />
-              <div
-                className="absolute inset-0"
-                style={{
-                  background:
-                    "linear-gradient(to top, rgba(23,12,4,0.85) 0%, rgba(23,12,4,0.1) 55%)",
-                }}
-              />
-              {cat.badge && (
-                <div
-                  className="absolute left-6 top-6 px-3 py-1.25 text-[10px] font-normal uppercase tracking-[0.16em]"
-                  style={{ color: "var(--dark)", background: "var(--gold)" }}
-                >
-                  {cat.badge}
-                </div>
-              )}
-              <div className="absolute inset-x-0 bottom-0 px-6 pb-7 pt-7">
-                <div
-                  className="mb-1.5 font-display text-[28px] font-normal"
-                  style={{ color: "var(--cream)" }}
-                >
-                  {cat.name}
-                </div>
-                <div
-                  className="text-[12px] font-light leading-[1.6]"
-                  style={{ color: "rgba(250,246,238,0.6)" }}
-                >
-                  {cat.desc}
-                </div>
+                key={cat.key}
+                className={baseClass}
+                style={{ background: "var(--terra-dk)" }}
+              >
+                {inner}
               </div>
-            </Link>
-          ))}
+            );
+          })}
         </div>
       </section>
 
@@ -313,16 +336,10 @@ export default function Home() {
             Conocernos mejor
           </Link>
         </div>
-        <div className="grid h-140 grid-rows-2 gap-3">
-          <div
-            className="bg-cover bg-center"
-            style={{ backgroundImage: "url(/img-interior1.jpg)" }}
-          />
-          <div
-            className="bg-cover bg-center"
-            style={{ backgroundImage: "url(/img-cafe-local.jpg)" }}
-          />
-        </div>
+        <div
+          className="h-140 bg-cover bg-center"
+          style={{ backgroundImage: "url(/img-interior1.jpg)" }}
+        />
       </section>
 
       {/* CONTACTO RESUMEN */}

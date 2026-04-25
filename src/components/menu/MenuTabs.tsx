@@ -1,11 +1,34 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { menuCategories, type MenuCategory } from "@/data/menu";
+
+const VALID_IDS = menuCategories.map((c) => c.id);
+
+function isValidId(value: string): value is MenuCategory["id"] {
+  return (VALID_IDS as readonly string[]).includes(value);
+}
 
 export default function MenuTabs() {
   const [active, setActive] = useState<MenuCategory["id"]>("cafes");
   const current = menuCategories.find((c) => c.id === active)!;
+
+  useEffect(() => {
+    function syncFromHash() {
+      const hash = window.location.hash.slice(1);
+      if (isValidId(hash)) setActive(hash);
+    }
+    syncFromHash();
+    window.addEventListener("hashchange", syncFromHash);
+    return () => window.removeEventListener("hashchange", syncFromHash);
+  }, []);
+
+  function selectTab(id: MenuCategory["id"]) {
+    setActive(id);
+    if (typeof window !== "undefined") {
+      history.replaceState(null, "", `#${id}`);
+    }
+  }
 
   return (
     <>
@@ -23,7 +46,7 @@ export default function MenuTabs() {
             <button
               key={cat.id}
               type="button"
-              onClick={() => setActive(cat.id)}
+              onClick={() => selectTab(cat.id)}
               data-active={isActive}
               className="flex cursor-pointer items-center gap-2 whitespace-nowrap border-0 border-b-2 bg-transparent px-7 py-5 text-[11px] font-normal uppercase tracking-[0.14em] transition-colors"
               style={{

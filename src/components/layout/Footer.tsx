@@ -18,7 +18,14 @@ export default function Footer() {
         className="text-[12px] tracking-[0.06em]"
         style={{ color: "rgba(250,246,238,0.25)" }}
       >
-        © {new Date().getFullYear()} Cuarto y Mitá · Oviedo, Asturias
+        Created by {" "}
+            <Link
+              className="hover:underline"
+              href={"https://www.tominavel.com"}
+            >
+              TomiNavel
+            </Link>
+            {" "} © {new Date().getFullYear()}
       </div>
 
       <div className="flex gap-5">
