@@ -1,78 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-
-const CATEGORIES: {
-  key: string;
-  name: string;
-  desc: string;
-  image: string;
-  badge?: string;
-  featured?: boolean;
-  imagePosition?: string;
-  href?: string;
-}[] = [
-  {
-    key: "cafes",
-    name: "Cafés",
-    desc: "Nuestro corazón. Granos de origen seleccionados, preparados con precisión y mucho cariño.",
-    image: "/img-cafes.webp",
-    badge: "Especialidad",
-    featured: true,
-    href: "/menu#cafes",
-  },
-  {
-    key: "dulces",
-    name: "Dulces",
-    desc: "Elaboración casera, de cada día.",
-    image: "/img-dulces.webp",
-  },
-  {
-    key: "embutidos",
-    name: "Embutidos",
-    desc: "Curados con paciencia y tradición.",
-    image: "/tabla-de-embutidos.webp",
-    imagePosition: "center 40%",
-    href: "/menu#embutidos",
-  },
-  {
-    key: "quesos",
-    name: "Quesos",
-    desc: "Suaves o intensos, siempre artesanos.",
-    image: "/img-quesos.webp",
-    href: "/menu#quesos",
-  },
-  {
-    key: "vinos",
-    name: "Vinos",
-    desc: "Una selección cuidada con historia en cada botella.",
-    image: "/img-vinos.webp",
-  },
-  {
-    key: "infusiones",
-    name: "Infusiones",
-    desc: "Hierbas y especias para momentos de calma.",
-    image: "/img-infusiones.webp",
-    href: "/menu#infusiones",
-  },
-];
-
-const HIGHLIGHTS = [
-  {
-    num: "01",
-    title: "Ingredientes de origen",
-    text: "Seleccionamos cada producto directamente de productores locales y regionales de confianza.",
-  },
-  {
-    num: "02",
-    title: "Recetas de siempre",
-    text: "Nuestras elaboraciones parten de recetas tradicionales transmitidas con el paso del tiempo.",
-  },
-  {
-    num: "03",
-    title: "Atención cercana",
-    text: "Te asesoramos en cada elección. El trato personal forma parte de nuestra identidad.",
-  },
-];
+import { homeCategories } from "@/data/categories";
+import { highlights } from "@/data/highlights";
 
 export default function Home() {
   return (
@@ -180,7 +109,7 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 gap-0.5 sm:grid-cols-2 lg:grid-cols-4 lg:grid-rows-[auto_auto]">
-          {CATEGORIES.map((cat) => {
+          {homeCategories.map((cat) => {
             const sizeClass = cat.featured
               ? "lg:col-span-2 min-h-72 sm:aspect-4/3 lg:min-h-100 lg:aspect-auto"
               : "aspect-4/3";
@@ -253,7 +182,7 @@ export default function Home() {
         className="grid grid-cols-1 gap-0.5 px-6 py-14 md:grid-cols-3 md:px-16 md:py-20"
         style={{ background: "var(--parchment)" }}
       >
-        {HIGHLIGHTS.map((h) => (
+        {highlights.map((h) => (
           <div
             key={h.num}
             className="px-6 py-10 md:px-10 md:py-12"

@@ -1,11 +1,11 @@
 export type Testimonial = {
-  text: string;
-  author: string;
-  via: string;
-  avatar: string;
+  readonly text: string;
+  readonly author: string;
+  readonly via: string;
+  readonly avatar: `/${string}`;
 };
 
-export const testimonials: Testimonial[] = [
+export const testimonials = [
   {
     text: "Venimos de vacaciones desde Badajoz, preocupados por los desayunos. Este sitio ha estado muy por encima de las expectativas. La comida es excelente, el lugar es muy agradable. Pero aún más por encima de todo eso, la atención, la amabilidad y el cariño con el que nos han atendido Marta y María nos ha hecho repetir desayuno tras desayuno.",
     author: "Ainara Robles",
@@ -24,4 +24,4 @@ export const testimonials: Testimonial[] = [
     via: "Google Reviews",
     avatar: "/img-avatar3.jpg",
   },
-];
+] satisfies ReadonlyArray<Testimonial>;

@@ -4,13 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useScrolled } from "@/hooks/useScrolled";
+import { navItems } from "@/data/nav";
 import Logo from "./Logo";
-
-const NAV_ITEMS = [
-  { href: "/", label: "Inicio" },
-  { href: "/menu", label: "Menú" },
-  { href: "/cuartoymita", label: "Cuarto y Mitá" },
-];
 
 export default function Header() {
   const pathname = usePathname();
@@ -52,7 +47,7 @@ export default function Header() {
 
       {/* Nav escritorio */}
       <nav className="hidden items-center gap-9 md:flex" aria-label="Principal">
-        {NAV_ITEMS.map((item) => {
+        {navItems.map((item) => {
           const active = pathname === item.href;
           return (
             <Link
@@ -127,7 +122,7 @@ export default function Header() {
           className="flex flex-col items-start gap-8"
           aria-label="Principal móvil"
         >
-          {NAV_ITEMS.map((item) => {
+          {navItems.map((item) => {
             const active = pathname === item.href;
             return (
               <Link

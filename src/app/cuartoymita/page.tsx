@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { testimonials } from "@/data/testimonials";
+import { values, type ValueIconKey } from "@/data/values";
 
 export const metadata: Metadata = {
   title: "Cuarto y Mitá",
@@ -21,30 +23,18 @@ export const metadata: Metadata = {
   },
 };
 
-const VALUES = [
-  {
-    name: "Café de especialidad",
-    desc: "Granos seleccionados de origen, tueste artesanal y preparación cuidada. Cada taza tiene su momento.",
-    icon: (
-      <path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8zM6 1v3M10 1v3M14 1v3" />
-    ),
-  },
-  {
-    name: "Elaboración casera",
-    desc: "Bizcochos, dulces y pinchos hechos cada día. El bizcocho de limón es, según nuestros clientes, de muerte.",
-    icon: (
-      <>
-        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-        <polyline points="9 22 9 12 15 12 15 22" />
-      </>
-    ),
-  },
-  {
-    name: "Producto de calidad",
-    desc: "Probablemente la mejor variedad de quesos en Asturias. Una selección honesta de embutidos, conservas y vinos.",
-    icon: <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />,
-  },
-];
+const VALUE_ICONS: Record<ValueIconKey, ReactNode> = {
+  coffee: (
+    <path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8zM6 1v3M10 1v3M14 1v3" />
+  ),
+  home: (
+    <>
+      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+      <polyline points="9 22 9 12 15 12 15 22" />
+    </>
+  ),
+  shield: <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />,
+};
 
 export default function CuartoYMitaPage() {
   return (
@@ -151,7 +141,7 @@ export default function CuartoYMitaPage() {
         className="grid grid-cols-1 gap-0.5 md:grid-cols-3"
         style={{ background: "var(--brown)" }}
       >
-        {VALUES.map((v) => (
+        {values.map((v) => (
           <div
             key={v.name}
             className="flex flex-col gap-4 px-6 py-10 md:px-11 md:py-13"
@@ -164,7 +154,7 @@ export default function CuartoYMitaPage() {
               strokeWidth="1.2"
               fill="none"
             >
-              {v.icon}
+              {VALUE_ICONS[v.icon]}
             </svg>
             <div
               className="font-display text-[24px] font-normal"

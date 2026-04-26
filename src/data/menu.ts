@@ -1,20 +1,20 @@
 export type MenuItem = {
-  name: string;
-  description: string;
+  readonly name: string;
+  readonly description: string;
 };
 
 export type MenuCategory = {
-  id: "cafes" | "infusiones" | "embutidos" | "quesos";
-  label: string;
-  titleEm: string;
-  titlePrefix: string;
-  image: string;
-  imagePosition?: string;
-  items: MenuItem[];
-  note?: string;
+  readonly id: "cafes" | "infusiones" | "embutidos" | "quesos";
+  readonly label: string;
+  readonly titleEm: string;
+  readonly titlePrefix: string;
+  readonly image: `/${string}`;
+  readonly imagePosition?: string;
+  readonly items: ReadonlyArray<MenuItem>;
+  readonly note?: string;
 };
 
-export const menuCategories: MenuCategory[] = [
+export const menuCategories = [
   {
     id: "cafes",
     label: "Cafés",
@@ -214,4 +214,4 @@ export const menuCategories: MenuCategory[] = [
     ],
     note: "Servimos nuestros quesos a temperatura ambiente para apreciar todos sus matices. Consúltanos por nuestra tabla mixta de quesos con mermelada y nueces.",
   },
-];
+] satisfies ReadonlyArray<MenuCategory>;
